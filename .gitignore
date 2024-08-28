@@ -1,5 +1,5 @@
 env/
 .env
 .cache/
-rag_data/.cache/
 .DS_Store
+rag_data/

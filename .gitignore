@@ -1,5 +1,6 @@
 env/
 .env
-.cache/
+practice/.cache/
 .DS_Store
-rag_data/
+practice/rag_data/
+practice/cache.db

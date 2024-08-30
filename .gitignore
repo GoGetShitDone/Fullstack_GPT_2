@@ -4,3 +4,4 @@ practice/.cache/
 .DS_Store
 practice/rag_data/
 practice/cache.db
+gpts/.cache/

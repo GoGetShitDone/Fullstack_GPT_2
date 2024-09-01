@@ -12,7 +12,6 @@ import streamlit as st
 st.set_page_config(
 	page_title="Document GPT",
 	page_icon="📄",
-	layout="wide",
 )
 
 class ChatCallbackHandler(BaseCallbackHandler):
@@ -61,9 +60,8 @@ def save_message(message, role):
 	st.session_state["messages"].append({"message": message, "role": role})
 
 def send_message(message, role, save=True):
-	icon = "🧑" if role == "human" else "🤖"
-	with st.chat_message(role, avatar=icon):
-		st.markdown(f'<div class="{role}-message">{message}</div>', unsafe_allow_html=True)
+	with st.chat_message(role):
+		st.markdown(message)
 	if save:
 		save_message(message, role)
 
@@ -92,8 +90,9 @@ st.title("📄 Document GPT")
 
 st.markdown("환영합니다!<br>이 챗봇을 사용하여 파일에 대해 AI에게 질문하세요!<br>사이드바에서 파일을 업로드하세요!", unsafe_allow_html=True)
 
+
 with st.sidebar:
-	file = st.file_uploader("Upload a .txt, .pdf, .docs file", type=["pdf","txt","docx",],)
+	file = st.file_uploader("Upload a .txt, .pdf, .docs, .md files only", type=["pdf","txt","docx","md"],)
 
 if file:
 	retriever = embed_file(file)

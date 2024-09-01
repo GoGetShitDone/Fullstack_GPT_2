@@ -12,7 +12,6 @@ import streamlit as st
 st.set_page_config(
 	page_title="🔒 Private GPT",
 	page_icon="🔒",
-	layout="wide",
 )
 
 class ChatCallbackHandler(BaseCallbackHandler):
@@ -62,9 +61,8 @@ def save_message(message, role):
 	st.session_state["messages"].append({"message": message, "role": role})
 
 def send_message(message, role, save=True):
-	icon = "🧑" if role == "human" else "🤖"
-	with st.chat_message(role, avatar=icon):
-		st.markdown(f'<div class="{role}-message">{message}</div>', unsafe_allow_html=True)
+	with st.chat_message(role):
+		st.markdown(message)
 	if save:
 		save_message(message, role)
 

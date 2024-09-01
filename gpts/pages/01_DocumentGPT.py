@@ -12,6 +12,7 @@ import streamlit as st
 st.set_page_config(
 	page_title="Document GPT",
 	page_icon="📄",
+	layout="wide",
 )
 
 class ChatCallbackHandler(BaseCallbackHandler):
@@ -48,7 +49,7 @@ def embed_file(file):
 		chunk_size=600,
 		chunk_overlap=100,
 	)
-	loader = UnstructuredFileLoader("./.cache/files/chapter_one.txt")
+	loader = UnstructuredFileLoader(file_path)
 	docs = loader.load_and_split(text_splitter=splitter)
 	embeddings = OpenAIEmbeddings()
 	cached_embeddings = CacheBackedEmbeddings.from_bytes_store(embeddings, cache_dir)
@@ -60,8 +61,9 @@ def save_message(message, role):
 	st.session_state["messages"].append({"message": message, "role": role})
 
 def send_message(message, role, save=True):
-	with st.chat_message(role):
-		st.markdown(message)
+	icon = "🧑" if role == "human" else "🤖"
+	with st.chat_message(role, avatar=icon):
+		st.markdown(f'<div class="{role}-message">{message}</div>', unsafe_allow_html=True)
 	if save:
 		save_message(message, role)
 
@@ -88,7 +90,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 st.title("📄 Document GPT")
 
-st.markdown("Welcome!~<br>Use this chatbot to ask questions to an AI about your files!!<br>Upload your files on the sideba!", unsafe_allow_html=True)
+st.markdown("환영합니다!<br>이 챗봇을 사용하여 파일에 대해 AI에게 질문하세요!<br>사이드바에서 파일을 업로드하세요!", unsafe_allow_html=True)
 
 with st.sidebar:
 	file = st.file_uploader("Upload a .txt, .pdf, .docs file", type=["pdf","txt","docx",],)

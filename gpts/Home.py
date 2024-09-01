@@ -11,7 +11,7 @@ st.markdown("""
 ### Click on any of them to explore! 🗺️
 
 ### - ✅ [DocumentGPT](/DocumentGPT)
-### - ☑️ [PrivateGPT](/PrivateGPT)
+### - ✅ [PrivateGPT](/PrivateGPT)
 ### - ☑️ [QuizGPT](/QuizGPT)
 ### - ☑️ [SiteGPT](/SiteGPT)
 ### - ☑️ [MeetingGPT](/MeetingGPT)

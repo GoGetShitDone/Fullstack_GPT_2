@@ -13,8 +13,6 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("🧐 Quiz GPT")
-
 llm = ChatOpenAI(
     temperature=0.1,
     model="gpt-3.5-turbo-1106",
@@ -58,6 +56,8 @@ with st.sidebar:
             retriever = WikipediaRetriever(top_k_results=1, lang="ko")
             with st.status("Searching Wikipedia..."):
                 docs = retriever.get_relevant_documents(topic)
+
+st.title("🧐 Quiz GPT")
 
 if not docs:
     st.markdown("Welcome to Quiz GPT.")

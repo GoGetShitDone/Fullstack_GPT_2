@@ -217,26 +217,36 @@ st.title("🧐 Quiz GPT")
 
 with st.sidebar:
     docs = None
-    # topic = None
+    topic = None
     choice = st.selectbox(
         "Choose what you want to use.",
-        ("File", "Wikipedia Article",),
+        ("Wikipedia Article", "File",),
         )
 
-    if choice == "File":
+    # if choice == "File":
+    #     file = st.file_uploader("Upload a .docx, .txt, .pdf, .md", type=["pdf", "docx","txt", "md",],)
+    #     if file:
+    #         docs = split_file(file)
+    #         st.write(docs)
+    # else:
+    #     topic = st.text_input("Search Wikipidia...")
+    #     if topic:
+    #         docs = wiki_search(topic)
+
+    if choice != "File":
+        topic = st.text_input("Search Wikipidia...")
+        if topic:
+            docs = wiki_search(topic)        
+    else:
         file = st.file_uploader("Upload a .docx, .txt, .pdf, .md", type=["pdf", "docx","txt", "md",],)
         if file:
             docs = split_file(file)
-            st.write(docs)
-    else:
-        topic = st.text_input("Search Wikipidia...")
-        if topic:
-            docs = wiki_search(topic)
+            st.write(docs)    
 
 if not docs:
     st.markdown("Welcome to Quiz GPT.")
 else:
-    response = run_quiz_chain(docs, topic if topic else file.naem)
+    response = run_quiz_chain(docs, topic if topic else file.name)
     with st.form("questions_form"):
         for question in response ["questions"]:
             st.write(question["question"])

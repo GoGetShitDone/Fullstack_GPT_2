@@ -12,7 +12,7 @@ st.markdown("""
 
 ### - ✅ [DocumentGPT](/DocumentGPT)
 ### - ✅ [PrivateGPT](/PrivateGPT)
-### - ☑️ [QuizGPT](/QuizGPT)
+### - ✅ [QuizGPT](/QuizGPT)
 ### - ☑️ [SiteGPT](/SiteGPT)
 ### - ☑️ [MeetingGPT](/MeetingGPT)
 ### - ☑️ [InvestorGPT](/InvestorGPT)

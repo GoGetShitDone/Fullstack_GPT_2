@@ -10,6 +10,7 @@ from langchain.retrievers import WikipediaRetriever
 st.set_page_config(
 	page_title="🧐 Quiz GPT",
 	page_icon="🧐",
+    layout="wide",
 )
 
 st.title("🧐 Quiz GPT")

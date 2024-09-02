@@ -12,6 +12,7 @@ import streamlit as st
 st.set_page_config(
 	page_title="Document GPT",
 	page_icon="📄",
+	layout="wide",
 )
 
 class ChatCallbackHandler(BaseCallbackHandler):

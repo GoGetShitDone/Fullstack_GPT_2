@@ -10,11 +10,10 @@ st.markdown("""
 # Hello Welcome to FullstackGPT! 👋 
 ### Click on any of them to explore! 🗺️
 
-### - ✅ [DocumentGPT](/DocumentGPT)
-### - ✅ [PrivateGPT](/PrivateGPT)
-### - ✅ [QuizGPT](/QuizGPT)
-### - ✅ [SiteGPT](/SiteGPT)
-### - ✅ [SiteGPT ver 2](/SiteGPT_v2)
-### - ☑️ [MeetingGPT](/MeetingGPT)
-### - ☑️ [InvestorGPT](/InvestorGPT)
+### - ✅ [Document GPT](/DocumentGPT)
+### - ✅ [Private GPT](/PrivateGPT)
+### - ✅ [Quiz GPT](/QuizGPT)
+### - ✅ [Site GPT](/SiteGPT)
+### - ☑️ [Meeting GPT](/MeetingGPT)
+### - ☑️ [Investor GPT](/InvestorGPT)
 						""")

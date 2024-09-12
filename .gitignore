@@ -6,3 +6,4 @@ practice/.cache/
 practice/rag_data/
 practice/cache.db
 gpts/.cache/
+.streamlit/
